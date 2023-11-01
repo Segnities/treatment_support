@@ -7,6 +7,7 @@ const {connectToDatabase} = require("./src/db/index");
 const app = express();
 const mainRouter = require('./src/router/index');
 
+
 app.use(express.json());
 app.use(cors());
 app.use('/api', mainRouter);
