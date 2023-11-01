@@ -28,13 +28,13 @@ class ConsultantsController {
             });
             return res.json({consultant: newConsultant});
         } catch (e) {
-            next(APIError.badRequest(e.message))
+            next(APIError.badRequest(e.message));
         }
     }
 
     async delete(req, res, next) {
         try {
-            const {uid} = req.body;
+            const {uid} = req.params;
             const deletedConsultant = await Consultants.deleteOne({uid});
             return res.json({consultant: deletedConsultant});
         } catch (e) {
@@ -89,7 +89,7 @@ class ConsultantsController {
             let {page, limit} = req.query;
             limit = parseInt(limit) || 10;
             const skip = (page - 1) * limit;
-            const consultants = await Consultants.find().limit(limit).skip(skip);
+            const consultants = await Consultants.find().limit(limit).skip(skip).toArray();
             const totalCount = await Consultants.countDocuments();
 
             return res.json({consultants, totalCount, currentPage: page, totalPages: Math.ceil(totalCount/limit)});
