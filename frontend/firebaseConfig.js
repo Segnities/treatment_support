@@ -1,6 +1,15 @@
-NEXT_PUBLIC_API_KEY='AIzaSyBMvrjQzyGNBD-9PrLg0wupaAR1XN4KCLA'
-NEXT_PUBLIC_AUTH_DOMAIN='treatment-support.firebaseapp.com'
-NEXT_PUBLIC_PROJECT_ID='treatment-support'
-NEXT_PUBLIC_STORAGE_BUCKET='treatment-support.appspot.com'
-NEXT_PUBLIC_MESSAGING_SENDER_ID='179245674902'
-NEXT_PUBLIC_APP_ID='1:179245674902:web:cff6440e1bb57dfb42adb7'
+import {initializeApp} from "firebase/app";
+import {getAuth} from "firebase/auth";
+
+const firebaseConfig = {
+    apiKey: process.env.NEXT_PUBLIC_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+    messagingSenderId:process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_APP_ID
+};
+
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+
