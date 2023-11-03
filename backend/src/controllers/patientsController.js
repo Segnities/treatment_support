@@ -12,7 +12,7 @@ class PatientsController {
                 address,
                 contact_information,
                 uid,
-                medical_history,
+                medical_records,
                 attending_consultants,
                 insurance_information,
                 additional_information
@@ -25,7 +25,7 @@ class PatientsController {
                 address,
                 contact_information,
                 uid,
-                medical_history,
+                medical_records,
                 attending_consultants,
                 insurance_information,
                 additional_information
@@ -56,7 +56,7 @@ class PatientsController {
                 gender,
                 address,
                 contact_information,
-                medical_history,
+                medical_records,
                 attending_consultants,
                 insurance_information,
                 additional_information
@@ -69,7 +69,7 @@ class PatientsController {
                     gender,
                     address,
                     contact_information,
-                    medical_history,
+                    medical_records,
                     attending_consultants,
                     insurance_information,
                     additional_information

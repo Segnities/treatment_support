@@ -1,10 +1,12 @@
 const APIError = require("../error/APIError");
 const {Consultants} = require("../models/index");
+const {Users} = require("../models");
 
 class ConsultantsController {
     async create(req, res, next) {
         try {
             const {
+                providerEmail,
                 name,
                 surname,
                 uid,
@@ -26,7 +28,12 @@ class ConsultantsController {
                 additional_information,
                 consultant_schedule_id
             });
-            return res.json({consultant: newConsultant});
+            const updatedUser = await Users.updateOne({email: providerEmail}, {
+                $set: {
+                    info_id: newConsultant.insertedId
+                }
+            });
+            return res.json({consultant: newConsultant, user: updatedUser});
         } catch (e) {
             next(APIError.badRequest(e.message));
         }
@@ -92,7 +99,7 @@ class ConsultantsController {
             const consultants = await Consultants.find().limit(limit).skip(skip).toArray();
             const totalCount = await Consultants.countDocuments();
 
-            return res.json({consultants, totalCount, currentPage: page, totalPages: Math.ceil(totalCount/limit)});
+            return res.json({consultants, totalCount, currentPage: page, totalPages: Math.ceil(totalCount / limit)});
         } catch (e) {
             next(APIError.internalRequest(e.message));
         }
