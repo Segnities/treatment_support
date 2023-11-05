@@ -3,7 +3,7 @@ import type {PayloadAction} from "@reduxjs/toolkit";
 
 import type {User} from "firebase/auth";
 
-type AuthState = {
+export type AuthState = {
   isAuth: boolean;
   user: User | null;
 };

@@ -1,5 +1,6 @@
 'use client';
 
+import {useRouter} from "next/navigation";
 import {
     browserLocalPersistence,
     GoogleAuthProvider,
@@ -9,6 +10,7 @@ import {
 import {auth} from "@/firebaseConfig";
 
 export default function LoginBtn() {
+    const router = useRouter();
     const handleClick = async () => {
         try {
             await setPersistence(auth, browserLocalPersistence);
@@ -18,6 +20,7 @@ export default function LoginBtn() {
             if (userCredential) {
                 const user = userCredential.user;
                 console.log(user)
+                router.push('/setup-account');
             }
         } catch (e) {
             console.log(e);
