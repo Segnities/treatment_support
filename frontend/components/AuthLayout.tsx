@@ -1,6 +1,9 @@
+'use client';
+
+import {useEffect} from "react";
+
 import {onAuthStateChanged} from "@firebase/auth";
 import {auth} from "@/firebaseConfig";
-import {useEffect} from "react";
 
 interface Props {
     children: React.ReactNode;

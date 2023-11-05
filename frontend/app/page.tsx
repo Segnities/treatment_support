@@ -1,9 +1,9 @@
-import DefaultLayout from "@/components/DefaultLayout";
+import DefaultUILayout from "@/components/DefaultUILayout";
 
 
 export default function Home() {
     return (
-        <DefaultLayout>
+        <DefaultUILayout>
             <main className="w-full mt-12">
                 <section className="w-full flex justify-center items-center h-16 bg-blue-200">
                     <h3 className="text-blue-600 text-center text-xs">Save the date for Demo Day to see what's new and what's possible with Firebase! Learn more.</h3>
@@ -21,6 +21,6 @@ export default function Home() {
                     </div>
                 </div>
             </main>
-        </DefaultLayout>
+        </DefaultUILayout>
     );
 }

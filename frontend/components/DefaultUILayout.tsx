@@ -4,7 +4,7 @@ interface Props {
     children: React.ReactNode
 }
 
-export default function DefaultLayout({children}: Props) {
+export default function DefaultUILayout({children}: Props) {
     return (
       <>
           <Header/>
